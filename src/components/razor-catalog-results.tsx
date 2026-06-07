@@ -83,12 +83,12 @@ function SortFeature() {
   return (
     <button
       type="button"
-      className="flex h-[32px] w-[126px] items-center gap-[8px] rounded-[8px] border border-[#e5e5e5] bg-white px-[12px] py-[8px]"
+      className="flex h-[32px] w-[126px] shrink-0 items-center justify-between rounded-[8px] border border-[#e5e5e5] bg-white px-[12px] py-[8px]"
     >
-      <span className="text-[13px] font-medium leading-[15.732954025268555px] tracking-[0px] text-[#1a1a1a]">
+      <span className="whitespace-nowrap text-[13px] font-medium leading-[15.732954025268555px] tracking-[0px] text-[#1a1a1a]">
         Sort: {sortOption}
       </span>
-      <span className="text-[12px] font-normal leading-[14.522727012634277px] tracking-[0px] text-[#6b7280]">
+      <span className="shrink-0 text-[12px] font-normal leading-[14.522727012634277px] tracking-[0px] text-[#6b7280]">
         ▾
       </span>
     </button>
