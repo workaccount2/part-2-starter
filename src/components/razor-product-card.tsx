@@ -3,14 +3,20 @@ import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { useCatalogStore } from "@/stores/catalog-store";
 
-const product = {
-  id: "rockwell-6s-adjustable",
-  name: "Rockwell 6S Adjustable",
-  material: "Stainless Steel",
-  price: "$120",
-};
+export interface RazorProduct {
+  id: string;
+  name: string;
+  material: string;
+  price: string;
+  type: string;
+  inStock: boolean;
+}
 
-export function RazorProductCard() {
+interface RazorProductCardProps {
+  product: RazorProduct;
+}
+
+export function RazorProductCard({ product }: RazorProductCardProps) {
   const { selectedProductId, toggleSelectedProduct } = useCatalogStore();
   const isSelected = selectedProductId === product.id;
 
@@ -33,10 +39,10 @@ export function RazorProductCard() {
             aria-pressed={isSelected}
             onClick={() => toggleSelectedProduct(product.id)}
             className={cn(
-              "h-[32px] w-[94px] rounded-[8px] px-[12px] py-[8px] text-[13px] font-medium leading-[15.732954025268555px] tracking-[0px] shadow-none",
+              "h-[32px] rounded-[8px] px-[12px] py-[8px] text-[13px] font-medium leading-[15.732954025268555px] tracking-[0px] shadow-none",
               isSelected
-                ? "bg-[#1a1a1a] text-white hover:bg-[#1a1a1a]"
-                : "border border-[#e5e5e5] bg-white text-[#1a1a1a] hover:bg-white",
+                ? "w-[94px] bg-[#1a1a1a] text-white hover:bg-[#1a1a1a]"
+                : "w-[64px] border border-[#e5e5e5] bg-white text-[#1a1a1a] hover:bg-white",
             )}
           >
             {isSelected ? "✓ Selected" : "Select"}
